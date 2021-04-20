@@ -30,6 +30,16 @@ app.get('/beers', (req, res) => {
     res.render('beers', {beersFromApi});
   })
   .catch(error => console.log(error));
+});
+
+app.get('/random-beer', (req, res) => {
+  punkAPI
+  .getRandom()
+  .then(randomBeerFromApi => {
+    console.log('Beers from the database: ', randomBeerFromApi)
+    res.render('randombeer', {randomBeerFromApi});
+  })
+  .catch(error => console.log(error));
   
 });
 
